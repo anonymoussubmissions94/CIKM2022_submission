@@ -2,15 +2,15 @@ print(1)
 from nltk.tokenize import sent_tokenize, word_tokenize  
 from numpy import number
 import os
-#from predict import predict_events, predict_sentence_events
+from t2e import predict_events, predict_sentence_events
 print(2)
 from qa import run_QA
 print(3)
-from classes2 import * 
+from classes import * 
 import time
 import sys
 import ndjson
-from utils2 import * 
+from utils import * 
 print(4)
 from random import shuffle
 from collections import Counter,  OrderedDict
@@ -20,8 +20,8 @@ import json
 import spacy
 nlp = spacy.blank("en")
 nlp.add_pipe('opentapioca')
-types_shelve = shelve.open('subevents/shelves/instance_types')
-dbpedia_ids_to_wikidata_ids = shelve.open('subevents/shelves/dbpedia_to_wikidata_en')
+types_shelve = shelve.open('target_ontology/shelves/instance_types')
+dbpedia_ids_to_wikidata_ids = shelve.open('target_ontology/shelves/dbpedia_to_wikidata_en')
 X = dict()
 with open("arg-prop_mapping.csv", "r") as csvfile:
     data = csv.reader(csvfile, delimiter=',')
