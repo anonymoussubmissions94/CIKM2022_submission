@@ -8,3 +8,10 @@ pretrained/*
 predictions/*
 **/stanford*/*
 scratch*
+/processing_sheets
+/env
+/dygie
+/doc
+/scripts
+/notebooks
+
