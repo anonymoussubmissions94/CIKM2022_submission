@@ -1,0 +1,304 @@
+Property,Label,Question
+P1596,penalty,"What penalty was given for the @@? 
+What penalty was given in the @@?"
+P2139,total revenue,What was the total amount of money paid out in the @@?
+P7228,access restriction status,
+P1817,addressee,Who was the @@ sent to?
+P1416,affiliation,"Who was the @@ affiliated with?
+What was the @@ affiliated with?"
+P927,anatomical location,#N/A
+P2243,apoapsis,What was the apoapsis of the @@?
+P1001,applies to jurisdiction,What area did the @@ apply to?
+P485,archives at,#N/A
+P520,armament,What weapon was used in the @@?
+P1110,attendance,"What was the number of people that attended the @@?
+How many people attended the @@?"
+P50,author,Who was the author of the @@?
+P797,authority,"Who issued the @@? 
+Who was responsible for the @@?"
+P166,award received,What award was given for the @@?
+P3015,backup or reserve team or crew,Who was the backup or reverse team for the @@?
+P1868,ballots cast,How many ballots were cast in the @@?
+P144,based on,What was the @@ based on?
+P726,candidate,Who was the candidate in the @@?
+P2505,carries,#N/A
+P562,central bank/issuer,Who was the central bank in the @@?
+P1595,charge,What was the charge in the @@?
+P40,child,Who was born?
+P2860,cites work,What does the @@ cite?
+P195,collection,Where is the @@ stored?
+P88,commissioned by,Who was the @@ commissioned by?
+P607,conflict,Which conflict was the @@ related to?
+P81,connecting line,What was the connecting line in the @@?
+P2789,connects with,What does the @@ connect with?
+P1537,contributing factor of,What movement did the @@ cause?
+P275,copyright license,What copyright license was involved in the @@?
+P6216,copyright status,What is the copyright status of the @@?
+P17,country,In which country did the @@ happen?
+P27,country of citizenship,What was the country of citizenship of the @@?
+P495,country of origin,What was the country of origin of the @@?
+P4884,court,In what court was the @@ made?
+P170,creator,Who is the creator of the @@?
+P1029,crew member(s),Who were the crew member(s) of the @@?
+P177,crosses,What geographical feature did the @@ cross?
+P489,currency symbol description,
+P1373,daily patronage,#N/A
+P569,date of birth,What was the date of birth of the @@?
+P570,date of death,What was the date of death caused by the @@?
+P1619,date of official opening,What was the date of official opening of the @@?
+P1591,defendant,Who was the defendant in the @@?
+P1299,depicted by,Who was the @@ mentioned by? 
+P180,depicts,Who does the @@ depict?
+P1343,described by source,Where was the @@ written about?
+P287,designed by,Who was the @@ designed by?
+P1444,destination point,What is the desination point of the @@?
+P2386,diameter,What is the diameter of the @@?
+P1889,different from,#N/A
+P576,"dissolved, abolished or demolished date",What was the date of the dissolution of the @@?
+P2176,drug or therapy used for treatment,
+P2047,duration,"What was the duration of the @@?
+How long did the @@ last?"
+P69,educated at,#N/A
+P7588,effective date,What was the effective date of the @@?
+P1831,electorate,"What was the size of the electorate?
+How many people were eligible to vote?"
+P1867,eligible voters,How many eligible voters were there in the @@?
+P582,end time,When did the @@ end?
+P8001,endorsed by,Who was the @@ endorsed by?
+P3934,face value,What is the value of the @@?
+P1269,facet of,What did the @@ play a role in?
+P734,family name,What was the family name of the @@?
+P841,feast day,#N/A
+P101,field of work,"What area is the @@ about?
+What domain the @@ about?"
+P2239,first aid measures,What measure was taken as a first aid response to the @@?
+P1101,floors above ground,#N/A
+P156,followed by,"What was the @@ followed by?
+What succeeded the @@?"
+P155,follows,"What did the @@ follow?
+What did the @@ succeed?"
+P112,founded by,Who was the @@ founded by?
+P2144,frequency,What is the frequency of the @@?
+P136,genre,#N/A
+P735,given name,What is the given name of the @@?
+P825,dedicated to,"Who was the @@ dedicated to? 
+What was the @@ dedicated to?"
+P828,has cause,"What caused the @@?
+What was the cause of the @@?"
+P1479,has contributing factor,"What caused the @@?
+What was the cause of the @@?
+What contributed to The @@?"
+P1542,has effect,What did the @@ cause?
+P527,has part,What played a part in the @@?
+P5804,has program committee member,Who were the program comittee members at the @@?
+P159,headquarters location,What is the headquarters location of the @@?
+P1995,health specialty,What medical field was required for the @@?
+P2048,height,#N/A
+P1435,heritage designation,#N/A
+P2184,history of topic,#N/A
+P1536,immediate cause of,"What was the immediate cause of the @@?
+What caused the @@?"
+P571,inception,"When did the @@ start?
+When was the @@ created?"
+P2341,indigenous to,#N/A
+P452,industry,What industry sector did the @@ happen in?
+P2360,intended public,"Who was the intended audience for the @@?
+Who was the @@ for?
+Who was the intended public for the @@?"
+P121,item operated,What fell in the aircraft crash?
+P1594,judge,Who was the judge in the @@?
+P3096,KML file,
+P407,language of work or name,What language was the @@ written in?
+P2936,language used,What language was used in the @@?
+P1412,"languages spoken, written or signed",What language was used in the @@?
+P1079,launch contractor,Who was the launch contract of the @@?
+P2043,length,What is the length of the @@?
+P6224,level of description,#N/A
+P206,located in or next to body of water,#N/A
+P921,main subject,What was the main subject of the @@?
+P131,located in the administrative territorial entity,"In what city did the @@ happen?"
+P421,located in time zone,In what time zone was the @@ located?
+P276,location,Where did the @@ happen?
+P1071,location of creation,#N/A
+P740,location of formation,In what location did the @@ happen?
+P1158,location of landing,"What was the location of landing of the @@?
+Where did the @@ land?"
+P186,made from material,What material is the @@ made from?
+P92,main regulatory text,What was the main regulatory text in the @@?
+P126,maintained by,#N/A
+P176,manufacturer,Who was the manufacturer in the @@?
+P2067,mass,What is the mass of the @@?
+P923,medical examinations,What medical examinations were done in the @@?
+P463,member of,What is the @@ member of?
+P54,member of sports team,Who were the members of the sports team?
+P138,named after,Who was the @@ named after?
+P103,native language,#N/A
+P5043,number of abstentions,What was the number of abstentions in the @@?
+P5045,number of blank votes,What was the number of blank votes in the @@?
+P1590,number of casualties,"What was the number of casualties in the @@?
+What was the number of casulaties caused by the @@?
+How many people were injured in the @@?
+How many people were killed in the @@?"
+P1120,number of deaths,"What is the number of deaths in the @@?
+How many people died from the @@?
+How many died in the @@?
+How many died?"
+P1339,number of injured,"What is the number of people injured in the @@?
+How many people were injured from the @@?
+How many were injured in the @@?
+How many were injured?"
+P8682,number of negative votes,"What is the number of negative votes in the @@?
+How many people voted against in the @@?
+How many negative votes were there in the @@?"
+P1132,number of participants,"What was the number of participants in the @@?
+How many people participated in the @@?"
+P3886,number of perpetrators,"What was the number perpetrators of the @@?
+How many perpetrators were there in the @@?"
+P6753,number of polling stations,"What number of polling stations was used in the @@?
+How many polling stations were there in the @@?"
+P1410,number of representatives in an organization/legislature or won in elections,What was the number of representatives in the @@?
+P5044,number of spoilt votes,What was the number of spoilt votes in the @@?
+P8683,number of support votes,"What was the number of support votes in the @@?
+How many people voted in support in the @@?
+How many support votes in the @@ were there?"
+P1561,number of survivors,"What was the number of survivors in the @@?
+What was the number of survivors of the @@?
+How many people survived the @@?"
+P1345,number of victims of killer,"What was the number of victims of the killer in the @@?
+What was the number of victims in the @@?
+How many people were killed in the @@?"
+P3712,objective of project or action,What was the objective of the @@?
+P106,occupation,What was the occupation of the @@?
+P541,office contested,"What office was contested in the @@?
+What position was contested in the @@?"
+P5008,on focus list of Wikimedia project,#N/A
+P2541,operating area,"What was the operating area of the @@?
+Where did the @@ operate?"
+P306,operating system,#N/A
+P137,operator,"Who operates the @@?
+Who operated the @@?
+Who was the @@ managed by?"
+P461,opposite of,
+P2045,orbital inclination,"What was the orbital inclination in the @@?
+What was the orbital inclination?"
+P2146,orbital period,"What was the orbital period in the @@?
+How long was the orbital period in the @@?"
+P1418,orbits completed,"How many orbits were completed in the @@?
+How many orbits were completed?"
+P8004,ordered by,"Who was the @@ ordered by?
+Who ordererd the @@?"
+P664,organizer,"Who was the organizer in the @@?
+Who organized the @@?"
+P7469,orientation,#N/A
+P4006,overrules,What does the @@ overrule?
+P127,owned by,"Who is the @@ owned by?
+Who owns the @@?"
+P1830,owner of,What does the @@ own?
+P749,parent organization,Who is the parent organization in the @@?
+P361,part of,What is the @@ part of?
+P179,part of the series,"What series is the @@ part of?
+What was the @@ part of?"
+P710,participant,"Who were the participants in the @@?
+Who was a participant in the @@?
+Who participated in the @@?"
+P1344,participant in,#N/A
+P1327,partner in business or sport,#N/A
+P2244,periapsis,What  was the periapsis in the @@?
+P8031,perpetrator,"Who were the perpetrators of the @@?
+Who was the perpetrator in the @@?
+Who did the @@?"
+P19,place of birth,Where did the birth take place?
+P20,place of death,#N/A
+P1620,plaintiff,"Who were the plaintiffs in the @@?
+Who was the plaintiff in the @@?"
+P400,platform,"On what platform was the @@ published?
+What platform was used in the @@?"
+P585,point in time,"On what date did the @@ happen?
+When did the @@ happen?"
+P1441,present in work,#N/A
+P2284,price,#N/A
+P5630,prisoner count,"What was the number of prisoners in the @@?
+How many prisoners were there in the @@?"
+P1056,product or material produced,What product was produced in the @@?
+P2754,production date,#N/A
+P277,programming language,#N/A
+P1592,prosecutor,Who was the prosecutor in the @@?
+P577,publication date,"On what date was the @@ published?
+What wasthe publication date of the @@?"
+P1433,published in,"What was the @@ published in?
+Where was the @@ published?"
+P1366,replaced by,Who was the @@ replaced by?
+P1365,replaces,#N/A
+P2675,reply to,#N/A
+P3858,route diagram,#N/A
+P460,said to be the same as,#N/A
+P21,sex or gender,What was the sex or gender of the @@?
+P47,shares border with,#N/A
+P3373,sibling,Who was a sibling to the @@?
+P1891,signatory,"Who was the signatory in the @@?
+Who signed the @@?"
+P793,significant event,"What were the significant events in the @@?
+What was a significant event in the @@?"
+P3342,significant person,"Who were significant persons in the @@?
+Who was a significant person in the @@?"
+P8687,social media followers,"What is the number of social media followers that were involved in the @@?
+How many social media followers were involved with the @@?"
+P375,space launch vehicle,What space launch vehicle was used in the @@?
+P823,speaker,"Who were the speakers at the @@?
+Who was the speaker at the @@?
+Who spoke at the @@?"
+P3086,speed limit,#N/A
+P641,sport,#N/A
+P1427,start point,"On what date did the @@ start?
+When did the @@ start?"
+P580,start time,"On what date did the @@ start?
+When did the @@ start?"
+P5817,state of use,#N/A
+P991,successful candidate,Who was the successful candidate in the @@?
+P780,symptoms and signs,What were the symptoms in the @@?
+P533,target,"Who was the target of the @@?
+What was the target in the @@?"
+P559,terminus,"What is the terminus of the @@?
+What was the terminus of the @@?
+What is the last station of the @@?"
+P609,terminus location,"Where is the terminus of the @@?
+Where was the terminus of the @@?
+Where is the last station of the @@?"
+P2957,throughput,#N/A
+P620,time of spacecraft landing,"At what time did the spacecraft land in the @@?
+On what date did the spacecraft land in the @@?
+When did a spacecraft land in the @@?
+When did a spacecraft land?"
+P621,time of spacecraft orbit decay,What was the time of spacecraft orbit decay?
+P2348,time period,"In what time period did the @@ happen?
+During which era did the @@ happen?"
+P1697,total valid votes,What was the total number of valid votes in the @@?
+P1064,track gauge,#N/A
+P834,train depot,#N/A
+P190,twinned administrative body,#N/A
+P930,type of electrification,#N/A
+P522,type of orbit,What was the type of orbit in the @@?
+P366,use,#N/A
+P7261,use restriction status,#N/A
+P2283,uses,What does the @@ use?
+P619,UTC date of spacecraft launch,"What was the UTC date of spacecraft launch in the @@?
+What was the UTC date of spacecraft launch?
+What was the date of the spacecraft launch in the @@?
+What was the date of the spacecraft launch?"
+P1876,vehicle,What vehicle is used in the @@?
+P3438,vehicle normally used,What vehicle is normally used in the @@?
+P2825,via,"What street did the @@ pass through?
+What square did the @@ pass through?
+What bridge did the @@ pass through?
+What road did the @@ pass throught?
+What avenue did the @@ pass through?"
+P8032,victim,"Who were the victims of the @@?
+Who were the victims in the @@?
+Who was the victim of the @@?
+Who was the victim in the @@?"
+P2436,voltage,What is the voltage of the @@?
+P8196,voting system,"What voting system was used in the @@?
+What kind of voting system was used in the @@?"
+P2848,Wi-Fi access,#N/A
+P1346,winner,"Who was the winner in the @@?
+Who was the winner of the @@?"

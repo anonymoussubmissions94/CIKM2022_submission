@@ -1,0 +1,73 @@
+Property ,Label,Reason
+P7228,access restriction status,
+P927,anatomical location,
+P485,archives at,Useless
+P489,currency symbol description,Useless
+P1373,daily patronage,Useless
+P1889,different from,Too unspecific
+P2386,diameter,Useless
+P841,feast day,Useless
+P69,educated at,
+P1101,floors above ground,
+P136,genre,Trade
+P2048,height,Birth
+P1435,heritage designation,
+P2184,history of topic,
+P2341,indigenous to,Marriage
+P3096,KML file,
+P6224,level of description,
+P206,located in or next to body of water,
+P1071,location of creation,Trade
+P126,maintained by,
+P103,native language,
+P5008,on focus list of Wikimedia project,
+P306,operating system,
+P461,opposite of,
+P7469,orientation,Trade
+P1344,participant in,Birth
+P1327,partner in business or sport,Birth
+P20,place of death,Birth
+P1441,present in work,Useless
+P2284,price,commemorative coin
+P2754,production date,Useless
+P277,programming language,
+P400,platform,
+P1365,replaces,Transport/Trade
+P1366,replaced by,Transport/Trade
+P3858,route diagram,
+P460,said to be the same as,
+P47,shares border with,
+P3086,speed limit,
+P641,sport,
+P5817,state of use,
+P2957,throughput,
+P1064,track gauge,
+P834,train depot,
+P190,twinned administrative body,
+P930,type of electrification,
+P366,use,
+P7261,use restriction status,
+P2848,Wi-Fi access,
+P31,instance of,
+P279,subclass of,
+P921,main subject,
+P1104,number of pages,
+P3872,patronage,
+P8751,die axis,
+P2283,uses,
+P747,has edition,
+P575,time of discovery or invention,
+P421,located in time zone,
+P559,terminus,
+P569,date of birth,
+P3342,Significant person,
+P8115,Eligible recipient,
+P703,found in taxon,
+P179,part of the series,
+P186,made from material,
+P1817,addressee,
+P2789,connects with,
+P609,terminus location,
+P19,place of birth,
+P1454,legal form,
+P2043,length,
