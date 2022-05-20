@@ -1,3 +1,6 @@
+This repository is a fork of [DyGIE++] (https://github.com/dwadden/dygiepp).
+
+
 # DyGIE++
 
 Implements the model described in the paper [Entity, Relation, and Event Extraction with Contextualized Span Representations](https://www.semanticscholar.org/paper/Entity%2C-Relation%2C-and-Event-Extraction-with-Span-Wadden-Wennberg/fac2368c2ec81ef82fd168d49a0def2f8d1ec7d8).
