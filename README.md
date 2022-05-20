@@ -1,4 +1,4 @@
-This repository is a fork of [[DyGIE++]]([url](https://github.com/dwadden/dygiepp))
+This repository is a fork of [DyGIE++]([url](https://github.com/dwadden/dygiepp))
 
 
 
