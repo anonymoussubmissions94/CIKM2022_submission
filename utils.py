@@ -88,9 +88,13 @@ def assign_ner(arguments):
                 argument.wikidata_types = types_wd[text]
     return arguments
     
+import configparser
+config = configparser.ConfigParser()
+config.read("config.ini")
+processing_sheets_path = config.get("Paths","processing_sheets_path")
 
 
-with open("/home/kuculo/ExtractMore/text2event/processing_sheets/all_classes_subclasses.csv", "r") as csvfile:
+with open(processing_sheets_path+"/all_classes_subclasses.csv", "r") as csvfile:
     next(csvfile)
     data = csv.reader(csvfile, delimiter=',')
     for row in data:
@@ -135,7 +139,7 @@ class_counts = {}
 ace2seed = {}
 ace2wiki = {}
 
-with open("/home/kuculo/ExtractMore/text2event/processing_sheets/seed_list.csv") as csvfile:
+with open(processing_sheets_path+"/processing_sheets/seed_list.csv") as csvfile:
     next(csvfile)
     data = csv.reader(csvfile, delimiter=',')
     for row in data:  
@@ -148,7 +152,7 @@ seed2ace = {seed:ace for ace, seeds in ace2seed.items() for seed in seeds}
 def get_ace(wd_class):
     return seed2ace[wd_class]
 
-with open("/home/kuculo/ExtractMore/text2event/processing_sheets/final_sheet.csv") as csvfile:
+with open(processing_sheets_path+"/processing_sheets/final_sheet.csv") as csvfile:
     next(csvfile)
     data = csv.reader(csvfile, delimiter=',')
     for row in data:  

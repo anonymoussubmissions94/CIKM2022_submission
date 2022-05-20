@@ -8,6 +8,7 @@ from utils import *
 from random import shuffle
 from collections import Counter,  OrderedDict
 import numpy as np
+import configparser
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 import json
 import spacy
@@ -21,7 +22,9 @@ with open("arg-prop_mapping.csv", "r") as csvfile:
     for row in data:
         X[row[0]] = (row[1], row[2])
 
-
+config = configparser.ConfigParser()
+config.read("config.ini")
+project_path = config.get("Paths","project_path")
 
 def create_transitive_class_hierarchy():
     d = dict()

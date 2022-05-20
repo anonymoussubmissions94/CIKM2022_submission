@@ -2,14 +2,15 @@
 # -*- coding:utf-8 -*-
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 import torch
+import configparser
 
 from seq2seq.constrained_seq2seq import decode_tree_str
 from extraction.predict_parser.tree_predict_parser import TreePredictParser
 from extraction.event_schema import EventSchema
 from extraction.extract_constraint import get_constraint_decoder
 
-device = torch.device("cuda:2")
-with torch.cuda.device('cuda:2'):
+device = torch.device("cuda:0")
+with torch.cuda.device('cuda:0'):
         torch.cuda.empty_cache()
 
 class EventExtractor:
@@ -49,7 +50,11 @@ class EventExtractor:
         event_list = [event['pred_record'] for event in event_list]
         return event_list
 
-model_path = "/home/kuculo/ExtractMore/text2event/pretrained_models/dyiepp_ace2005_en_t5_base"
+config = configparser.ConfigParser()
+config.read("config.ini")
+t2e_models = config.get("Paths","t2e_models")
+
+model_path = t2e_models+"/"+"/dyiepp_ace2005_en_t5_base"
 event_extractor = EventExtractor.from_pretrained(model_path=model_path)
 
 def predict_events(texts):

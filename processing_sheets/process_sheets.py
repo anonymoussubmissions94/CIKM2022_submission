@@ -19,8 +19,12 @@ all_classes_subclasses = {}
 all_classes_transitive_counts = {}
 properties_per_class = {}
 old_counts = {}
+import configparser
+config = configparser.ConfigParser()
+config.read("config.ini")
+processing_sheets_path = config.get("Paths","processing_sheets_path")
 
-with open("/home/kuculo/ExtractMore/text2event/processing_sheets/seed_list.csv", "r") as csvfile:
+with open(processing_sheets_path+"/seed_list.csv", "r") as csvfile:
     next(csvfile)
     data = csv.reader(csvfile, delimiter=',')
     for row in data: 
@@ -30,7 +34,7 @@ with open("/home/kuculo/ExtractMore/text2event/processing_sheets/seed_list.csv",
             seed2ace[wd_class] = ace_label
 
 
-with open("/home/kuculo/ExtractMore/text2event/processing_sheets/ace_subclasses.csv", "r") as csvfile:
+with open(processing_sheets_path+"/ace_subclasses.csv", "r") as csvfile:
     next(csvfile)
     data = csv.reader(csvfile, delimiter='\t')
     for row in data: 
@@ -38,7 +42,7 @@ with open("/home/kuculo/ExtractMore/text2event/processing_sheets/ace_subclasses.
             super_sub_classes[row[0]] = []
         super_sub_classes[row[0]].append(row[1]) 
 
-with open("/home/kuculo/ExtractMore/text2event/processing_sheets/all_classes_subclasses.csv", "r") as csvfile:
+with open(processing_sheets_path+"/all_classes_subclasses.csv", "r") as csvfile:
     next(csvfile)
     data = csv.reader(csvfile, delimiter=',')
     for row in data:
@@ -47,7 +51,7 @@ with open("/home/kuculo/ExtractMore/text2event/processing_sheets/all_classes_sub
         all_classes_subclasses[row[0]].append(row[1]) 
 
 
-with open("/home/kuculo/ExtractMore/text2event/processing_sheets/all_types_transitive_counts.csv", "r") as csvfile:
+with open(processing_sheets_path+"/all_types_transitive_counts.csv", "r") as csvfile:
     next(csvfile)
     data = csv.reader(csvfile, delimiter=',')
     for row in data:
@@ -58,7 +62,7 @@ def create_sheet():
 
     D = []
     # getting seed transitive counts, and seed labels
-    with open("/home/kuculo/ExtractMore/text2event/processing_sheets/seeds_information.csv", "r") as csvfile:
+    with open(processing_sheets_path+"/seeds_information.csv", "r") as csvfile:
         next(csvfile)
         data = csv.reader(csvfile, delimiter=',')
         for row in data: 
@@ -67,7 +71,7 @@ def create_sheet():
 
 
     # narrowing down seed classes for the sub classes
-    with open("/home/kuculo/ExtractMore/text2event/processing_sheets/seeds_subclasses.csv", "r") as csvfile:
+    with open(processing_sheets_path+"/seeds_subclasses.csv", "r") as csvfile:
         next(csvfile)
         data = csv.reader(csvfile, delimiter=',')
         for row in data: 
@@ -96,7 +100,7 @@ def create_sheet():
                             break
     # summing up subclass properties
     wd_labels = {}
-    with open("/home/kuculo/ExtractMore/text2event/processing_sheets/all.csv", "r") as csvfile:
+    with open(processing_sheets_path+"/all.csv", "r") as csvfile:
         data = csv.reader(csvfile, delimiter=',')
         for i, row in enumerate(data): 
             if i==0:
@@ -197,7 +201,7 @@ def create_sheet():
                 D.append({"seed class": seed_class, "seed label": seed_label, "transitive_cnt":seed_transitive_count, "type_label": wikidata_class_label, "type": wikidata_class, "transitive_class_instances_cnt": transitive_wikidata_class_count, "property": prop,\
             "property_label": property_label, "count": transitive_property_count, "also_known":known_as,"data_type":data_type,"constraint_label_list":constraint_label_list, "constraint_class_list":constraint_class_list,"tail_cnt":tail_counts})
             
-    with open("/home/kuculo/ExtractMore/text2event/processing_sheets/data.csv", "w") as csvfile:
+    with open(processing_sheets_path+"/data.csv", "w") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=["seed class", "seed label", "transitive_cnt", "type_label", "type", "transitive_class_instances_cnt", "property","property_label",\
                 "count","also_known","data_type","constraint_label_list", "constraint_class_list","tail_cnt"])
         writer.writeheader()
@@ -205,7 +209,7 @@ def create_sheet():
             writer.writerow(row)
 
 
-def reduce_number_of_properties(path = "/home/kuculo/ExtractMore/text2event/processing_sheets/data.csv", path2 = "/home/kuculo/ExtractMore/text2event/processing_sheets/reduced_data.csv"):
+def reduce_number_of_properties(path = processing_sheets_path+"/data.csv", path2 = processing_sheets_path+"/reduced_data.csv"):
     white_list = ["http://wikiba.se/ontology#WikibaseItem","http://wikiba.se/ontology#Quantity","http://wikiba.se/ontology#Time"]
     class_black_list = []
     time_properties = ["P585","P2047","P571","P580","P582"]
@@ -220,19 +224,19 @@ def reduce_number_of_properties(path = "/home/kuculo/ExtractMore/text2event/proc
     D = []
 
     property_black_list = []
-    with open("/home/kuculo/ExtractMore/text2event/processing_sheets/categories.csv", "r") as csvfile:
+    with open(processing_sheets_path+"/categories.csv", "r") as csvfile:
         next(csvfile)
         data = csv.reader(csvfile, delimiter=",")
         for row in data:          
             property_black_list.append(row[0].replace("http://www.wikidata.org/entity/",""))
 
-    with open("/home/kuculo/ExtractMore/text2event/processing_sheets/properties_to_remove.csv", "r") as csvfile:
+    with open(processing_sheets_path+"/properties_to_remove.csv", "r") as csvfile:
         next(csvfile)
         data = csv.reader(csvfile, delimiter=",")
         for row in data:          
             property_black_list.append(row[0])
 
-    with open("/home/kuculo/ExtractMore/text2event/processing_sheets/classes_to_remove.csv","r") as csvfile:
+    with open(processing_sheets_path+"/classes_to_remove.csv","r") as csvfile:
         next(csvfile)
         data = csv.reader(csvfile, delimiter=",")
         for row in data:
@@ -352,7 +356,7 @@ def transfer_properties():
     proprow = dict() # row of the first occurence of a given property
     seeds = set()
     D = []
-    with open("/home/kuculo/ExtractMore/text2event/processing_sheets/reduced_data.csv", "r") as csvfile:
+    with open(processing_sheets_path+"/reduced_data.csv", "r") as csvfile:
         next(csvfile)
         data = csv.reader(csvfile, delimiter=",")
         for row in data:   
@@ -395,7 +399,7 @@ def transfer_properties():
             #if wikidata_class in proprow and prop in proprow[wikidata_class]:
                 #proprow[wikidata_class].pop(prop, None)
 
-    with open("/home/kuculo/ExtractMore/text2event/processing_sheets/reduced_data.csv", "r") as csvfile:
+    with open(processing_sheets_path+"/reduced_data.csv", "r") as csvfile:
         next(csvfile)
         data = csv.reader(csvfile, delimiter=",")
         for row in data: 
@@ -418,7 +422,7 @@ def transfer_properties():
             "property_label": row[6], "count": row[7], "also_known":row[8],"data_type":row[9],"constraint_label_list":row[10]\
                 ,"constraint_class_list":row[11],"tail_cnt":row[12]})
 
-    with open("/home/kuculo/ExtractMore/text2event/processing_sheets/extended_prop_data.csv", "w") as csvfile:
+    with open(processing_sheets_path+"/extended_prop_data.csv", "w") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=["ACE", "transitive_cnt", "type_label", "type", "#type_instances", "property", "property_label", "count",\
          "also_known", "data_type", "constraint_label_list", "constraint_class_list", "tail_cnt"])
         writer.writeheader()
@@ -426,16 +430,16 @@ def transfer_properties():
             writer.writerow(row)
                 
 
-def generate_questions(path = "/home/kuculo/ExtractMore/text2event/processing_sheets/final_sheet.csv"):
+def generate_questions(path = processing_sheets_path+"/final_sheet.csv"):
     new = []
     D = {}
-    with open("/home/kuculo/ExtractMore/text2event/processing_sheets/property_questions.csv", "r") as csvfile:
+    with open(processing_sheets_path+"/property_questions.csv", "r") as csvfile:
         next(csvfile)
         data = csv.reader(csvfile, delimiter=",")
         for row in data:          
             D[row[0]] = row[2].split("\n")
 
-    with open("/home/kuculo/ExtractMore/text2event/processing_sheets/reduced_data.csv", "r") as csvfile:
+    with open(processing_sheets_path+"/reduced_data.csv", "r") as csvfile:
         next(csvfile)
         data = csv.reader(csvfile, delimiter=",")
         for row in data:
