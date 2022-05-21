@@ -263,7 +263,7 @@ def extract_event(detokenized_sentences, event_types, event_triggers, last_time)
         new_candidates = list(set(new_candidates))
         print()
         questions, indices, constraints = generate_questions(new_candidates, completed)
-    results = identify_correct_classes2(candidate_arguments, new_candidates, context)
+    results = identify_correct_classes(candidate_arguments, new_candidates, context)
     output = []
 
     all_predictions = []
