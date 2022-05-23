@@ -26,3 +26,4 @@ sed -i 's/> <http:\/\/www.w3.org\/1999\/02\/22-rdf-syntax-ns#type> <http:\/\/www
 rm types.ttl
 mv types_dbo.ttl data/types_dbo.csv
 mv types_wd.ttl data/types_wd.csv
+rm ids_de.tll

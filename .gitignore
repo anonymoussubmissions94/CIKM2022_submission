@@ -13,4 +13,6 @@ scratch*
 /doc
 /scripts
 /notebooks
-
+/data
+/subevents/data
+/subevents/shelves
