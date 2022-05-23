@@ -24,5 +24,5 @@ To replicate paper results, run steps as follows.
 
 
 #### Extra
-* Check ```notebook/wikidata_extraction.ipynb``` to see how we get Wikidata event classes, properties, constraints and statistics.
+* Check ```notebook/wikidata_extraction.ipynb``` to see how we get Wikidata event classes, properties, constraints and statistics. Run ```notebook/wikidata_extraction.ipynb```
 * Check ```processing_sheets/process_sheets.py``` to see how we filter Wikidata event classes, get transitive statistics and propagate properties through Wikidata event classes.
