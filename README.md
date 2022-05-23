@@ -9,7 +9,7 @@ To replicate paper results, run steps as follows.
 
 * Run [MWDumper](https://www.mediawiki.org/wiki/Manual:MWDumper) to get Wikipedia articles of events in .ndjson file format.
 * Run ```subevents/data_download-sh``` to prepare Wikidata and Dbpedia dumps and redirects.
-* Run ```processing_sheets/process_sheets.py``` to
+* Run ```subevents/create_shelves.py``` to assure quick access to the dumps.  
 * Set your project path in the ```config.ini```. 
 * Run ```prepare_data.py``` to prepare and process data for event type prediction. 
 * Run ```event_type_detection.sh``` to get predicted ACE-ontology event types on the data. This can take quite a while, the intermediate results will be stored in the data/intermediate_results folder. 
