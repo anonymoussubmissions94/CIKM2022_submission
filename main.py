@@ -266,16 +266,6 @@ def extract_event(detokenized_sentences, event_types, event_triggers, last_time)
     results = identify_correct_classes(candidate_arguments, new_candidates, context)
     output = []
 
-    all_predictions = []
-    # if I want all event classes use all_predictions, but filter out classes of same event type if they don't have a property with different values
-
-    for cand_pair in candidate_arguments:
-        all_predictions.append({"predicted_event_class":cand_pair[0], "event_trigger": event_triggers[cand_pair[1]]})
-        for prop in candidate_arguments[cand_pair]:
-            if "predicted_event_properties" not in all_predictions[-1]:
-                all_predictions[-1].update({"predicted_event_properties":{}})
-            all_predictions[-1]["predicted_event_properties"][prop] = candidate_arguments[cand_pair][prop]
-
     if results:
         for result in results:
             wd_class = result[0][0]
@@ -285,7 +275,6 @@ def extract_event(detokenized_sentences, event_types, event_triggers, last_time)
             output.append({"predicted_event_class":wd_class, "predicted_event_properties": predicted_event_properties, "event_trigger": event_trigger})
     
     return output, last_time
-
 
 
 def reformat_t2e_predictions(predictions):
@@ -317,7 +306,6 @@ def reformat_t2e_predictions(predictions):
     return all_predictions
 
 
-
 def ace2wd(event, arguments, all_tokens):
     event_type = event[1].split(".")[1].upper()
     if event_type not in X:
@@ -337,9 +325,6 @@ def ace2wd(event, arguments, all_tokens):
     prediction = {"predicted_event_class":wd_class,"predicted_event_properties":{}}
     prediction["predicted_event_properties"] = {k:v for k,v in zip(argument_properties, argument_classes)}
     return prediction
-
-
-
 
 
 def t2e(predictions_path, data_path):
@@ -385,7 +370,6 @@ def t2e(predictions_path, data_path):
             dataset[parent_event_wd_id] = {}
 
             all_tokens = [token for sentence in sentences for token in sentence]    
-            #predicted_ner = [ne for sentence_ne in predicted_ner for ne in sentence_ne]
             current_context_window = 0
             event_types = []
             event_triggers = {}
@@ -442,10 +426,7 @@ def t2e(predictions_path, data_path):
                         current_context_window = 0
 
 
-            
-
-
-def reformat_dygiepp(predictions, all_tokens): # [[[14, "Conflict.Attack", 28.494, 1.0]
+def reformat_dygiepp(predictions, all_tokens): 
     all_predictions = []
     for sentence_predictions in predictions:
         for prediction in sentence_predictions:
