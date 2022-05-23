@@ -13,7 +13,7 @@ To replicate paper results, run steps as follows.
 * Run ```event_type_detection.py``` to get predicted ACE-ontology event types on the data. This can take quite a while, the intermediate results will be stored in the data/intermediate_results folder. 
 
 #### Evaluation with Unlinked Sub-events
-* Run ```main.py``` to extract events from Wikipedia articles of events given predicted ACE-ontology event types. The results will be stored in the evaluation/unlinked_sub-events
+* Run ```main.py``` to extract events from Wikipedia articles of events given predicted ACE-ontology event types. The results will be stored in the evaluation/unlinked_sub-events.
 
 
 
