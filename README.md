@@ -16,7 +16,7 @@ To replicate paper results, run steps as follows.
 * Run ```merge_predictions.py``` to get the final results of ```event_type_detection.sh```.
 
 #### Evaluation with Unlinked Sub-events
-* Run ```main.py``` to extract events from Wikipedia articles of events given predicted ACE-ontology event types. The results will be stored in the evaluation/unlinked_sub-events.
+* Run ```main.py``` to extract events from Wikipedia articles of events given predicted ACE-ontology event types. The results will be stored in evaluation/unlinked_sub-events folder
 
 
 
