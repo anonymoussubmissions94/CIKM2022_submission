@@ -11,7 +11,9 @@ To replicate paper results, run steps as follows.
 * Run ```subevents/data_download-sh``` to prepare Wikidata and Dbpedia dumps and redirects.
 * Run ```processing_sheets/process_sheets.py``` to
 * Set your project path in the ```config.ini```. 
-* Run ```event_type_detection.py``` to get predicted ACE-ontology event types on the data. This can take quite a while, the intermediate results will be stored in the data/intermediate_results folder. 
+* Run ```prepare_data.py``` to prepare and process data for event type prediction. 
+* Run ```event_type_detection.sh``` to get predicted ACE-ontology event types on the data. This can take quite a while, the intermediate results will be stored in the data/intermediate_results folder. 
+* Run ```merge_predictions.py``` to get the final results of ```event_type_detection.sh```.
 
 #### Evaluation with Unlinked Sub-events
 * Run ```main.py``` to extract events from Wikipedia articles of events given predicted ACE-ontology event types. The results will be stored in the evaluation/unlinked_sub-events.
