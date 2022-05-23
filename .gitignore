@@ -16,4 +16,5 @@ scratch*
 /data
 /subevents/data
 /subevents/shelves
-*.ini
+configs/config.ini
+
