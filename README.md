@@ -4,7 +4,7 @@ This repository present contains the code for the 2022 CIKM submission Extractin
 
 ### Steps
 
-python preprocessing.py 
+
 To replicate paper results, run steps as follows.
 
 * Run [MWDumper](https://www.mediawiki.org/wiki/Manual:MWDumper) to get Wikipedia articles of events in .ndjson file format.
