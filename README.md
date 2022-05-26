@@ -17,13 +17,13 @@ To replicate paper results, run steps as follows.
 * Run ```merge_predictions.py``` to get the final results of event type detection.
 
 #### Evaluation with Unlinked Sub-events
-* Run ```main.py``` to extract events from Wikipedia articles of events given predicted ACE-ontology event types. The results will be stored in evaluation/unlinked_sub-events folder
+* Run ```main.py``` to extract events from Wikipedia articles of events given predicted ACE-ontology event types. The results will be stored in ```evaluation/unlinked_sub-events``` folder
 
 
 
 #### Evaluation with Linked Sub-events
 * Run ```prepare_groundtruth.py``` to prepare prediction and evaluation on linked sub-events.
-* Run ```linked_event_evaluation.py``` to run the baselines and our approach on the groundtruth data. The final evaluation results as described in the paper will be created in the evaluation/linked_sub-events/results.txt file.
+* Run ```linked_event_evaluation.py``` to run the baselines and our approach on the groundtruth data. The final evaluation results as described in the paper will be created in the ```evaluation/linked_sub-events/results.txt``` file.
 
 
 #### Extra
