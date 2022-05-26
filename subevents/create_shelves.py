@@ -3,9 +3,12 @@ import pandas as pd
 import csv
 import sys
 import json
+import os
 tmp = {}
 
-
+if not os.path.isdir("shelves"):
+        os.mkdir("shelves")
+        
 print("Read DBpedia -> Wikidata index.")
 # Read file data/ml_taxonomy/wikidata_to_dbpedia.csv into index
 with open('data/wikidata_to_dbpedia_en.csv') as file:
@@ -61,7 +64,25 @@ with open('data/redirects_en.csv') as file_redirects:
 
 types = {}
 all = []
-"""
+
+print(1)
+dbpedia2wd_shelve = shelve.open('shelves/dbpedia_to_wikidata_en')
+dbpedia2wd_shelve.update(dbpedia_ids_to_wikidata_ids)
+dbpedia2wd_shelve.close()
+
+
+print(2)
+types_dbo_shelve = shelve.open('shelves/types_dbo')
+types_dbo_shelve.update(types_dbo)
+types_dbo_shelve.close()
+print(3)
+types_wd_shelve = shelve.open('shelves/types_wd')
+types_wd_shelve.update(types_wd)
+types_wd_shelve.close()
+print(4)
+
+
+
 print("starting")
 csv.field_size_limit(sys.maxsize)
 with open('data/instanceof-data.tsv') as instance_properties:
@@ -78,25 +99,11 @@ with open('data/instanceof-data.tsv') as instance_properties:
         except(IndexError):
             all.append(line)
 
-"""
-print(1)
-dbpedia2wd_shelve = shelve.open('shelves/dbpedia_to_wikidata_en')
-dbpedia2wd_shelve.update(dbpedia_ids_to_wikidata_ids)
-dbpedia2wd_shelve.close()
 
 
-print(2)
-types_dbo_shelve = shelve.open('shelves/types_dbo')
-types_dbo_shelve.update(types_dbo)
-types_dbo_shelve.close()
-print(3)
-types_wd_shelve = shelve.open('shelves/types_wd')
-types_wd_shelve.update(types_wd)
-types_wd_shelve.close()
-print(4)
-"""
+
 types_shelve = shelve.open('shelves/instance_types')
 types_shelve.update(types)
 types_shelve.close()
 print(5)
-"""
+

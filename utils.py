@@ -8,6 +8,8 @@ from collections import Counter,  OrderedDict
 import itertools
 import spacy
 import json
+import os
+import copy
 nlp = spacy.blank("en")
 nlp.add_pipe('opentapioca')
 
@@ -30,8 +32,8 @@ types_dbo = shelve.open('subevents/shelves/types_dbo')
 types_wd = shelve.open('subevents/shelves/types_wd')
 types_shelve = shelve.open('subevents/shelves/instance_types')
 
-with open("subevents/data/transitive_class_hierarchy.json","r") as f:
-    class_hierarchy = json.load(f)
+#with open("subevents/data/transitive_class_hierarchy.json","r") as f:
+    #class_hierarchy = json.load(f)
 
 
 
@@ -61,6 +63,101 @@ def assign_ner(arguments):
                 argument.wikidata_types = types_wd[text]
     return arguments
     
+def create_table4():
+    our = {}
+    t2e = {}
+    dyg = {}
+
+    for file in os.listdir("data/unlinked_events"):
+        if file.startswith("a_"):
+            with open("data/unlinked_events/"+file, "r") as f:
+                our.update(json.load(f))
+
+
+    for file in os.listdir("data/unlinked_events"):
+        if file.startswith("t2e_"):
+            with open("data/unlinked_events/"+file, "r") as f:
+                t2e.update(json.load(f))
+
+    with open("data/unlinked_events/dygiepp_150.json", "r") as f:
+        dyg.update(json.load(f))
+
+    print(len(our), len(t2e), len(dyg))
+
+    shared_keys = our.keys()&t2e.keys()&dyg.keys()
+
+    tmp = copy.deepcopy(our)
+    for key in tmp:
+        if key not in shared_keys:
+            del our[key]
+    tmp = copy.deepcopy(dyg)
+    for key in tmp:
+        if key not in shared_keys:
+            del dyg[key]
+    tmp = copy.deepcopy(t2e)
+    for key in tmp:
+        if key not in shared_keys:
+            del t2e[key]
+
+    print(len(our), len(t2e), len(dyg))
+
+    s1 = 0
+    s2 = 0
+    s3 = 0
+
+    prop1 = 0
+    prop2 = 0
+    prop3 = 0
+
+    unique_classes1 = set()
+    unique_classes2 = set()
+    unique_classes3 = set()
+
+    unique_properties1 = []
+    unique_properties2 = []
+    unique_properties3 =  []
+
+    for key in our:
+        for context1, context2, context3 in zip(our[key], dyg[key], t2e[key]):
+            s1 += len([i for i in our[key][context1] if i and i["predicted_event_properties"]])
+            s2 += len([i for i in dyg[key][context2] if i and i["predicted_event_properties"]])
+            s3 += len([i for i in t2e[key][context3] if i and i["predicted_event_properties"] ])
+            for prediction in our[key][context1]:
+                if prediction:
+                    unique_classes1.update({prediction["predicted_event_class"]})
+                    prop1 += len(prediction["predicted_event_properties"])
+                    for property in prediction["predicted_event_properties"]:
+                        unique_properties1.append(property)
+            for prediction in dyg[key][context2]:
+                if prediction:
+                    unique_classes2.update({prediction["predicted_event_class"]})
+                    prop2 += len(prediction["predicted_event_properties"])
+                    for property in prediction["predicted_event_properties"]:
+                        unique_properties2.append(property)
+            for prediction in t2e[key][context3]:
+                if prediction:
+                    unique_classes3.update({prediction["predicted_event_class"]})
+                    prop3 += len(prediction["predicted_event_properties"])
+                    for property in prediction["predicted_event_properties"]:
+                        unique_properties3.append(property)
+
+
+    print(s1, s2, s3)
+    print(prop1, prop2, prop3)
+    print(len(unique_classes1), len(unique_classes2), len(unique_classes3))
+    print(len(set(unique_properties1)), len(set(unique_properties2)), len(set(unique_properties3)))
+
+    D = []
+    D.append({"T2E Events":s3,"DYGIEPP Events":s2,"HSE Events":s1,"T2E Relations":prop3,"DYGIEPP Relations":prop2,"HSE Relations":prop1,\
+        "T2E Event classes":unique_classes3,"DYGIEPP Event classes":unique_classes2,"HSE Event classes":unique_classes1,"T2E Properties":unique_properties3,"DYGIEPP Properties":unique_properties2,"HSE Properties":unique_properties1})
+
+    with open("evaluation/unlinked_sub-events/results/table4.csv", "w") as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=["T2E Events","DYGIEPP Events","HSE Events","T2E Relations","DYGIEPP Relations","HSE Relations",\
+        "T2E Event classes","DYGIEPP Event classes","HSE Event classes","T2E Properties","DYGIEPP Properties","HSE Properties"])
+        writer.writeheader()
+        for row in D:
+            writer.writerow(row)
+
 
 
 
@@ -103,7 +200,7 @@ class_counts = {}
 ace2seed = {}
 ace2wiki = {}
 
-with open(processing_sheets_path+"/processing_sheets/seed_list.csv") as csvfile:
+with open(processing_sheets_path+"/seed_list.csv") as csvfile:
     next(csvfile)
     data = csv.reader(csvfile, delimiter=',')
     for row in data:  
@@ -116,7 +213,7 @@ seed2ace = {seed:ace for ace, seeds in ace2seed.items() for seed in seeds}
 def get_ace(wd_class):
     return seed2ace[wd_class]
 
-with open(processing_sheets_path+"/processing_sheets/final_sheet.csv") as csvfile:
+with open(processing_sheets_path+"/final_sheet.csv") as csvfile:
     next(csvfile)
     data = csv.reader(csvfile, delimiter=',')
     for row in data:  

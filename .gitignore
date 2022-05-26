@@ -17,4 +17,6 @@ scratch*
 /subevents/data
 /subevents/shelves
 configs/config.ini
+/evaluation
+/pretrained
 

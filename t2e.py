@@ -51,7 +51,7 @@ class EventExtractor:
         return event_list
 
 config = configparser.ConfigParser()
-config.read("config.ini")
+config.read("configs/config.ini")
 t2e_models = config.get("Paths","t2e_models")
 
 model_path = t2e_models+"/"+"/dyiepp_ace2005_en_t5_base"

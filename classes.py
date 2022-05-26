@@ -6,8 +6,8 @@ import datetime
 from dateparser import parse
 import json
 
-with open("subevents/data/transitive_class_hierarchy.json","r") as f:
-    class_hierarchy = json.load(f)
+#with open("subevents/data/transitive_class_hierarchy.json","r") as f:
+    #class_hierarchy = json.load(f)
 
 
 class Corpus:

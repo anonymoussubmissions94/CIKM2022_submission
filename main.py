@@ -1,8 +1,9 @@
 from nltk.tokenize import sent_tokenize, word_tokenize  
 from numpy import number
 import os
-from predict import predict_events, predict_sentence_events
+#from t2e import predict_events, predict_sentence_events
 from classes import * 
+from qa import run_QA
 import ndjson
 from utils import * 
 from random import shuffle
@@ -25,6 +26,8 @@ with open("arg-prop_mapping.csv", "r") as csvfile:
 config = configparser.ConfigParser()
 config.read("config.ini")
 project_path = config.get("Paths","project_path")
+data_path = config.get("Paths","data_path")
+prediction_path = config.get("Paths","prediction_path")
 
 def create_transitive_class_hierarchy():
     d = dict()
@@ -60,7 +63,7 @@ def get_parents(parent_map, node_id, filter):
         parents = set()
     return list(parents)
 
-def predict_events(prediction_path, data_path):
+def predict_events(prediction_path, data_path, stop_at=150):
     last_time = datetime.datetime(2001,12,10)
     print("START")
     directory = prediction_path
@@ -78,7 +81,7 @@ def predict_events(prediction_path, data_path):
                 continue
             if l > 0 and l-s>=2:
                 print("Dumping data\n\n\n")
-                with open("reformatted_baselines/y_"+str(l)+".json", "w") as fx:
+                with open("data/unlinked_events/a_"+str(l)+".json", "w") as fx:
                     json.dump(dataset, fx, default=str)
                 dataset = {}
                 s = l
@@ -96,9 +99,8 @@ def predict_events(prediction_path, data_path):
 
             print("number_of_processed_articles: ", l)
             l+=1
-            #if parent_event_wd_id!="Q33933":
-                #s = l
-                #continue
+            if l>stop_at:
+                break
 
             sentences = predictions["sentences"]
             all_predicted_events = predictions["predicted_events"]
@@ -327,7 +329,7 @@ def ace2wd(event, arguments, all_tokens):
     return prediction
 
 
-def t2e(predictions_path, data_path):
+def t2e(predictions_path, data_path, stop_at=150):
     print("START")
     directory = predictions_path
     s = 0
@@ -344,7 +346,7 @@ def t2e(predictions_path, data_path):
                 continue
             if l > 0 and l-s>=2:
                 print("Dumping data\n\n\n")
-                with open("reformatted_baselines/t2e_"+str(l)+".json", "w") as fx:
+                with open("data/unlinked_events/t2e_"+str(l)+".json", "w") as fx:
                     json.dump(dataset, fx, default=str)
                 dataset = {}
                 s = l
@@ -362,7 +364,7 @@ def t2e(predictions_path, data_path):
 
             print("number_of_processed_articles: ", l)
             l+=1
-            if l>150:
+            if l>stop_at:
                 break
         
             sentences = predictions["sentences"]
@@ -499,9 +501,9 @@ def dygiepp(predictions, dataset, parent_event_wd_id):
 
     return dataset[parent_event_wd_id][detokenized_sentences]
 
-def dygiepp_on_all(predictions_path, data_path):
+def dygiepp_on_all(prediction_path, data_path, stop_at):
     print("START")
-    directory = predictions_path
+    directory = prediction_path
     s = 0
     l = 0
     tp = 0
@@ -517,7 +519,7 @@ def dygiepp_on_all(predictions_path, data_path):
                 continue
             if l > 0 and l-s>=2:
                 print("Dumping data\n\n\n")
-                with open("reformatted_baselines/dygiepp_ner_"+str(l)+".json", "w") as fx:
+                with open("data/unlinked_events/dygiepp_ner_"+str(l)+".json", "w") as fx:
                     json.dump(dataset, fx, default=str)
                 dataset = {}
                 s = l
@@ -534,13 +536,17 @@ def dygiepp_on_all(predictions_path, data_path):
                 continue
             print("number_of_processed_articles: ", l)
             l+=1
+            if l>stop_at:
+                break
             dataset.update(dygiepp(predictions,dataset, parent_event_wd_id))
 
             
 
 if __name__ == "__main__":
-    #dygiepp()
-    predict_events()
-    #t2e_on_all()
+    predict_events(prediction_path, data_path)
+    t2e(prediction_path, data_path)
+    dygiepp_on_all(prediction_path, data_path)
+    create_table4()
+
 
     

@@ -21,7 +21,7 @@ properties_per_class = {}
 old_counts = {}
 import configparser
 config = configparser.ConfigParser()
-config.read("config.ini")
+config.read("../configs/config.ini")
 processing_sheets_path = config.get("Paths","processing_sheets_path")
 
 with open(processing_sheets_path+"/seed_list.csv", "r") as csvfile:
