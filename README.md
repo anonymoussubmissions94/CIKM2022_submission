@@ -12,7 +12,7 @@ To replicate paper results, run steps as follows.
 * Run ```subevents/create_shelves.py``` to assure quick access to the dumps.  
 * Set your project path in the ```config.ini```. 
 * Run ```prepare_data.py``` to prepare and process data for event type prediction. This will create the data and the full folder structure as expected from subsequent code.
-* Download the pretrained event detection model [here].(https://ai2-s2-research.s3-us-west-2.amazonaws.com/dygiepp/master/ace05-event.tar.gz)
+* Download the pretrained event detection model [here](https://ai2-s2-research.s3-us-west-2.amazonaws.com/dygiepp/master/ace05-event.tar.gz).
 * Run ```event_type_detection.sh``` to get predicted ACE-ontology event types on the data. This can take quite a while, the intermediate results will be stored in the data/intermediate_results folder. 
 * Run ```merge_predictions.py``` to get the final results of ```event_type_detection.sh```.
 
