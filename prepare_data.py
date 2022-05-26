@@ -16,7 +16,7 @@ import ndjson
 
 
 config = configparser.ConfigParser()
-config.read("configs/config.ini")
+config.read("config.ini")
 project_path = config.get("Paths","project_path")
 
 dbpedia_ids_to_wikidata_ids = shelve.open('subevents/shelves/dbpedia_to_wikidata_en')
@@ -129,22 +129,6 @@ if __name__ == "__main__":
             format_dataset(project_path+"/data/intermediate_results/unprocessed_data/"+str(n) + "/" + subfolder, output_file_path ,"ace-event")
     print("Ready for event type prediction")
     
-    #print("Merging split file prediction")
-    #merge_predictions()
-
-"""
-    for directory in /home/kuculo/ExtractMore/text2event/evaluation/unproc/*; do
-        /home/kuculo/anaconda3/envs/dygiepp/bin/python scripts/new-dataset/format_new_dataset.py $directory /home/kuculo/ExtractMore/text2event/evaluation/proc/${directory##*/}/${directory##*/}.txt ace-event  
-    done
-done
-"""
-
-
-# PROCESS DATA WITH process_eval_data.sh
-# PREDICT with run_event_predictions
-# Rerun predictions by running re-run_missed_prediction.py followed by rerun_event_predictions.sh
-# Run merge_predictions
-# Run reformat_predictions_to_wd.py
 
 
 
