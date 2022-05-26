@@ -25,7 +25,7 @@ To replicate paper results, run steps as follows.
 #### Evaluation with Linked Sub-events
 * Run ```scripts/linked_event_type_detection.sh```. 
 * Run ```prepare_groundtruth.py``` to prepare prediction and evaluation on linked sub-events.
-* Run ```linked_event_evaluation.py``` to run the baselines and our approach on the groundtruth data. The final evaluation results as described in the paper will be created in the ```evaluation/linked_sub-events/results/results.txt"``` file.
+* Run ```linked_event_evaluation.py``` to run the baselines and our approach on the groundtruth data. The final evaluation results as described in the paper will be created in the ```evaluation/linked_sub-events/results/results.txt``` file.
 
 
 #### Extra
