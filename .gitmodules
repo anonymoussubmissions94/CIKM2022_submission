@@ -1,0 +1,3 @@
+[submodule "eventtextwikipediadumper"]
+	path = eventtextwikipediadumper
+	url = https://git.l3s.uni-hannover.de/gottschalk/eventtextwikipediadumper
