@@ -7,7 +7,7 @@ This repository present contains the code for the 2022 CIKM submission Extractin
 
 To replicate paper results, run steps as follows.
 
-* Run [MWDumper](https://www.mediawiki.org/wiki/Manual:MWDumper) to get Wikipedia articles of events in .ndjson file format.
+* Run Follow instructions in the ```eventtextwikipediadumper``` to run [MWDumper](https://www.mediawiki.org/wiki/Manual:MWDumper) and get Wikipedia articles of events in .ndjson file format. Place the resulting files into ```data\event_articles```in the project folder.
 * Run ```subevents/data_download.sh``` to prepare Wikidata and Dbpedia dumps and redirects.
 * Run ```subevents/create_shelves.py``` to assure quick access to the dumps.  
 * Set your project path in the ```config.ini```. 
