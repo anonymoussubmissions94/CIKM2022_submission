@@ -63,7 +63,7 @@ def get_parents(parent_map, node_id, filter):
         parents = set()
     return list(parents)
 
-def predict_events(prediction_path, data_path, stop_at=150):
+def predict_events(prediction_path, data_path, stop_at=10):
     last_time = datetime.datetime(2001,12,10)
     print("START")
     directory = prediction_path
@@ -74,9 +74,9 @@ def predict_events(prediction_path, data_path, stop_at=150):
         dataset  = {}
         all_data_path = data_path
         all_files = (sorted(os.listdir(all_data_path)))
-        with open(all_data_path + all_files[int(subdirectory)], "r") as f:
+        with open(all_data_path +"/"+ all_files[int(subdirectory)], "r") as f:
             json_list = ndjson.load(f)
-        for number_of_processed_articles, article in enumerate(sorted(os.listdir(directory+subdirectory))): 
+        for number_of_processed_articles, article in enumerate(sorted(os.listdir(directory+"/"+subdirectory))): 
             if (article.endswith("_1.txt") or article.endswith("_2.txt") or article.endswith("_3.txt") or article.endswith("_4.txt")):
                 continue
             if l > 0 and l-s>=2:
@@ -86,7 +86,7 @@ def predict_events(prediction_path, data_path, stop_at=150):
                 dataset = {}
                 s = l
             print(article)
-            with open(directory+subdirectory+"/"+article,"r") as f:
+            with open(directory+"/"+subdirectory+"/"+article,"r") as f:
                 predictions = json.load(f)
             if not predictions or "_FAILED_PREDICTION" in predictions:
                 continue 
@@ -329,7 +329,7 @@ def ace2wd(event, arguments, all_tokens):
     return prediction
 
 
-def t2e(predictions_path, data_path, stop_at=150):
+def t2e(predictions_path, data_path, stop_at=10):
     print("START")
     directory = predictions_path
     s = 0
@@ -341,7 +341,7 @@ def t2e(predictions_path, data_path, stop_at=150):
         all_files = (sorted(os.listdir(all_data_path)))
         with open(all_data_path + all_files[int(subdirectory)], "r") as f:
             json_list = ndjson.load(f)
-        for number_of_processed_articles, article in enumerate(sorted(os.listdir(directory+subdirectory))): 
+        for number_of_processed_articles, article in enumerate(sorted(os.listdir(directory+"/"+subdirectory))): 
             if (article.endswith("_1.txt") or article.endswith("_2.txt") or article.endswith("_3.txt") or article.endswith("_4.txt")):
                 continue
             if l > 0 and l-s>=2:
@@ -351,7 +351,7 @@ def t2e(predictions_path, data_path, stop_at=150):
                 dataset = {}
                 s = l
             print(article)
-            with open(directory+subdirectory+"/"+article,"r") as f:
+            with open(directory+"/"+subdirectory+"/"+article,"r") as f:
                 predictions = json.load(f)
             if not predictions or "_FAILED_PREDICTION" in predictions:
                 continue 
@@ -501,7 +501,7 @@ def dygiepp(predictions, dataset, parent_event_wd_id):
 
     return dataset[parent_event_wd_id][detokenized_sentences]
 
-def dygiepp_on_all(prediction_path, data_path, stop_at):
+def dygiepp_on_all(prediction_path, data_path, stop_at=10):
     print("START")
     directory = prediction_path
     s = 0
@@ -514,7 +514,7 @@ def dygiepp_on_all(prediction_path, data_path, stop_at):
         all_files = (sorted(os.listdir(all_data_path)))
         with open(all_data_path + all_files[int(subdirectory)], "r") as f:
             json_list = ndjson.load(f)
-        for number_of_processed_articles, article in enumerate(sorted(os.listdir(directory+subdirectory))): 
+        for number_of_processed_articles, article in enumerate(sorted(os.listdir(directory+"/"+subdirectory))): 
             if (article.endswith("_1.txt") or article.endswith("_2.txt") or article.endswith("_3.txt") or article.endswith("_4.txt")):
                 continue
             if l > 0 and l-s>=2:
@@ -524,7 +524,7 @@ def dygiepp_on_all(prediction_path, data_path, stop_at):
                 dataset = {}
                 s = l
             print(article)
-            with open(directory+subdirectory+"/"+article,"r") as f:
+            with open(directory+"/"+subdirectory+"/"+article,"r") as f:
                 predictions = json.load(f)
             if not predictions or "_FAILED_PREDICTION" in predictions:
                 continue 
